@@ -1,0 +1,27 @@
+version: "3"
+services:
+  server:
+    container_name: server
+    build: .
+    restart: always
+    ports:
+      - "443:443"
+      - "8081:8081"
+      - "9443:9443"
+    links:
+      - mysql:mysql
+    volumes:
+      - /home/www:/var/www
+
+  mysql:
+    container_name: mysql
+    image: mysql/mysql-server:5.7
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: videochat
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_ROOT_HOST: mysql
+    ports:
+      - "3306:3306"
