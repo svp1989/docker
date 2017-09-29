@@ -4,6 +4,8 @@ services:
     container_name: server
     build: .
     restart: always
+    environment:
+      XDEBUG_CONFIG: remote_host=192.168.0.4
     ports:
       - "443:443"
       - "8081:8081"
