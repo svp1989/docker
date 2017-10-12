@@ -67,7 +67,7 @@ RUN echo "export VISIBLE=now" >> /etc/profile \
         && echo "export VISIBLE=now" >> /etc/profile \
         && echo "include /etc/nginx/stream.d/*.conf;" >> /etc/nginx/nginx.conf \
         && echo "daemon off;" >> /etc/nginx/nginx.conf \
-        && sed -e 's/;daemonize = yes/daemonize = no/' /etc/php/7.1/fpm/php-fpm.conf
+        && echo "127.0.0.1 videochat.amulex.ru" >> /etc/hosts
 
 #Инициализируем запуск прилодения типа nano
 RUN export TERM=xterm

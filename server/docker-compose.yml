@@ -15,6 +15,9 @@ services:
     volumes:
       - /home/www:/var/www
 
+    extra_hosts:
+      - "videochat.amulex.ru:127.0.0.1"
+
   mysql:
     container_name: mysql
     image: mysql/mysql-server:5.7
@@ -27,3 +30,5 @@ services:
       MYSQL_ROOT_HOST: mysql
     ports:
       - "3306:3306"
+    volumes:
+      - ./mysql:/var/lib/mysql
